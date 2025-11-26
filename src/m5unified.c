@@ -1,15 +1,12 @@
-#include "picoruby.h"
+#include <stdlib.h>
 #include "../include/picoruby_m5unified.h"
 
-// Gem initialization functions required by mrbgem system
-void
-mrb_picoruby_m5unified_gem_init(mrb_state *mrb)
-{
-  mrb_picoruby_m5unified_init_impl(mrb);
-}
+#if defined(PICORB_VM_MRUBY)
 
-void
-mrb_picoruby_m5unified_gem_final(mrb_state *mrb)
-{
-  
-}
+#include "mruby/m5unified.c"
+
+#elif defined(PICORB_VM_MRUBYC)
+
+#include "mrubyc/m5unified.c"
+
+#endif
