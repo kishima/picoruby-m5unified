@@ -1,6 +1,9 @@
 /* M5GFX Image Methods - mruby/c implementation */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_push_image(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_push_grayscale_image(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -32,3 +35,5 @@ void mrbc_m5gfx_image_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "copy_rect", c_m5_gfx_copy_rect);
     mrbc_define_method(vm, class_M5Gfx, "scroll", c_m5_gfx_scroll);
 }
+
+} // extern "C"

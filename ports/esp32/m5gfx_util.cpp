@@ -1,6 +1,9 @@
 /* M5GFX Utility Methods - mruby/c implementation */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_flood_fill(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_paint(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -32,3 +35,5 @@ void mrbc_m5gfx_util_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "clear_file_storage", c_m5_gfx_clear_file_storage);
     mrbc_define_method(vm, class_M5Gfx, "prepare_tmp_transaction", c_m5_gfx_prepare_tmp_transaction);
 }
+
+} // extern "C"

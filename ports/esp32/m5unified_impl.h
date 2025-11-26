@@ -9,13 +9,13 @@
 
 #include <mrubyc.h>
 
-// TODO: Include C++ headers when ready
-// #include <M5Unified.h>
-// #include <M5GFX.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /*
  * Forward declarations for all method implementations
- * These are organized by category and implemented in separate .c files
+ * These are organized by category and implemented in separate .cpp files
  */
 
 /* ============================================== */
@@ -250,5 +250,9 @@ void c_m5_gfx_clear_file_storage(mrbc_vm *vm, mrbc_value *v, int argc);
 void c_m5_gfx_prepare_tmp_transaction(mrbc_vm *vm, mrbc_value *v, int argc);
 
 void mrbc_m5gfx_util_init(struct VM *vm, mrbc_class *class_M5Gfx);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* PICORUBY_M5UNIFIED_IMPL_H */

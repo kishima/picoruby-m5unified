@@ -1,6 +1,9 @@
 /* M5GFX Text Methods - mruby/c implementation */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_set_cursor(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_get_cursor_x(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
@@ -68,3 +71,5 @@ void mrbc_m5gfx_text_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "printf", c_m5_gfx_printf);
     mrbc_define_method(vm, class_M5Gfx, "vprintf", c_m5_gfx_vprintf);
 }
+
+} // extern "C"

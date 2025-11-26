@@ -5,7 +5,10 @@
  * Total methods: 12
  */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 /* ==============================================
  * Method: M5Gfx#color16to8
@@ -154,3 +157,5 @@ mrbc_m5gfx_color_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "get_palette_count", c_m5_gfx_get_palette_count);
     mrbc_define_method(vm, class_M5Gfx, "has_palette", c_m5_gfx_has_palette);
 }
+
+} // extern "C"

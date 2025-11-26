@@ -1,6 +1,9 @@
 /* M5GFX Drawing Methods - mruby/c implementation */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_draw_pixel(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_fast_v_line(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -66,3 +69,5 @@ void mrbc_m5gfx_draw_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "draw_right_string", c_m5_gfx_draw_right_string);
     mrbc_define_method(vm, class_M5Gfx, "draw_char", c_m5_gfx_draw_char);
 }
+
+} // extern "C"

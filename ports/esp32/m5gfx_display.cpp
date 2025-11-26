@@ -1,6 +1,9 @@
 /* M5GFX Display Control Methods - mruby/c implementation */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_get_rotation(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
 void c_m5_gfx_set_rotation(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -64,3 +67,5 @@ void mrbc_m5gfx_display_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "is_spi_shared", c_m5_gfx_is_spi_shared);
     mrbc_define_method(vm, class_M5Gfx, "get_scan_line", c_m5_gfx_get_scan_line);
 }
+
+} // extern "C"

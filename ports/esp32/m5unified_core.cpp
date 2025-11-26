@@ -5,7 +5,10 @@
  * Total methods: 19
  */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 /* ==============================================
  * Method: M5.get_pin
@@ -325,3 +328,5 @@ mrbc_m5unified_core_init(struct VM *vm)
     mrbc_define_method(vm, m5_module, "get_touch_button_height", c_m5_unified_get_touch_button_height);
     mrbc_define_method(vm, m5_module, "get_io_expander", c_m5_unified_get_io_expander);
 }
+
+} // extern "C"

@@ -5,7 +5,10 @@
  * Total methods: 18
  */
 
+#include <M5Unified.h>
 #include "m5unified_impl.h"
+
+extern "C" {
 
 void c_m5_gfx_start_write(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_end_write(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -47,3 +50,5 @@ void mrbc_m5gfx_lowlevel_init(struct VM *vm, mrbc_class *class_M5Gfx)
     mrbc_define_method(vm, class_M5Gfx, "wait_dma", c_m5_gfx_wait_dma);
     mrbc_define_method(vm, class_M5Gfx, "dma_busy", c_m5_gfx_dma_busy);
 }
+
+} // extern "C"
