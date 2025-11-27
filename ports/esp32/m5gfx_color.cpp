@@ -16,9 +16,13 @@ extern "C" {
 void
 c_m5_gfx_color16to8(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-    /* TODO: Implement color16to8 conversion */
-    SET_INT_RETURN(0);
+    if (argc >= 1) {
+        uint32_t rgb565 = GET_INT_ARG(1);
+        uint8_t rgb332 = M5.Display.color16to8(rgb565);
+        SET_INT_RETURN(rgb332);
+    } else {
+        SET_INT_RETURN(0);
+    }
 }
 
 /* ==============================================
@@ -27,9 +31,13 @@ c_m5_gfx_color16to8(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_color8to16(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-    /* TODO: Implement color8to16 conversion */
-    SET_INT_RETURN(0);
+    if (argc >= 1) {
+        uint32_t rgb332 = GET_INT_ARG(1);
+        uint16_t rgb565 = M5.Display.color8to16(rgb332);
+        SET_INT_RETURN(rgb565);
+    } else {
+        SET_INT_RETURN(0);
+    }
 }
 
 /* ==============================================
@@ -86,8 +94,10 @@ c_m5_gfx_set_color(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_set_raw_color(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract color parameter */
-    /* TODO: Call setRawColor */
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.setRawColor(color);
+    }
     SET_NIL_RETURN();
 }
 
@@ -97,8 +107,8 @@ c_m5_gfx_set_raw_color(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_get_raw_color(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Get raw color value */
-    SET_INT_RETURN(0);
+    uint32_t color = M5.Display.getRawColor();
+    SET_INT_RETURN(color);
 }
 
 /* ==============================================
@@ -107,8 +117,10 @@ c_m5_gfx_get_raw_color(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_set_base_color(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract color parameter */
-    /* TODO: Call setBaseColor */
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.setBaseColor(color);
+    }
     SET_NIL_RETURN();
 }
 
@@ -118,8 +130,8 @@ c_m5_gfx_set_base_color(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_get_base_color(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Get base color */
-    SET_INT_RETURN(0);
+    uint32_t color = M5.Display.getBaseColor();
+    SET_INT_RETURN(color);
 }
 
 /* ==============================================
@@ -128,9 +140,9 @@ c_m5_gfx_get_base_color(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_get_palette(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract index parameter */
-    /* TODO: Get palette color at index */
-    SET_INT_RETURN(0);
+    // getPalette returns RGBColor* pointer - not easily supported in mruby/c
+    // Return nil for now (would require Array implementation)
+    SET_NIL_RETURN();
 }
 
 /* ==============================================
@@ -139,8 +151,8 @@ c_m5_gfx_get_palette(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_get_palette_count(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Get palette count */
-    SET_INT_RETURN(0);
+    uint32_t count = M5.Display.getPaletteCount();
+    SET_INT_RETURN(count);
 }
 
 /* ==============================================
@@ -149,8 +161,12 @@ c_m5_gfx_get_palette_count(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_has_palette(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Check if has palette */
-    SET_FALSE_RETURN();
+    bool has_palette = M5.Display.hasPalette();
+    if (has_palette) {
+        SET_TRUE_RETURN();
+    } else {
+        SET_FALSE_RETURN();
+    }
 }
 
 /* ==============================================
