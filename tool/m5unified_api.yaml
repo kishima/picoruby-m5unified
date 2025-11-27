@@ -1,0 +1,3307 @@
+---
+generated_at: '2025-10-29 10:37:49 +0900'
+source_files:
+- M5Unified.hpp
+- LGFXBase.hpp
+classes:
+- name: M5Unified
+  namespace: m5::m5
+  file: M5Unified.hpp
+  methods:
+  - name: getPin
+    return_type: int8_t
+    parameters:
+    - type: pin_name_t
+      name: name
+    modifiers: []
+    line: 250
+  - name: getButton
+    return_type: Button_Class&
+    parameters:
+    - type: size_t
+      name: index
+    modifiers: []
+    line: 252
+  - name: getDisplay
+    return_type: M5GFX&
+    parameters:
+    - type: size_t
+      name: index
+    modifiers: []
+    line: 256
+  - name: getDisplayCount
+    return_type: std::size_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 260
+  - name: addDisplay
+    return_type: std::size_t
+    parameters:
+    - type: M5GFX&
+      name: dsp
+    modifiers: []
+    line: 262
+  - name: getDisplayIndex
+    return_type: int32_t
+    parameters:
+    - type: m5gfx::board_t
+      name: board
+    modifiers: []
+    line: 266
+  - name: getDisplayIndex
+    return_type: int32_t
+    parameters:
+    - type: std::initializer_list<m5gfx::board_t>
+      name: board_list
+    modifiers: []
+    line: 268
+  - name: setPrimaryDisplay
+    return_type: bool
+    parameters:
+    - type: std::size_t
+      name: index
+    modifiers: []
+    line: 271
+  - name: setPrimaryDisplayType
+    return_type: bool
+    parameters:
+    - type: std::initializer_list<m5gfx::board_t>
+      name: board_list
+    modifiers: []
+    line: 275
+  - name: setPrimaryDisplayType
+    return_type: bool
+    parameters:
+    - type: m5gfx::board_t
+      name: board
+    modifiers: []
+    line: 278
+  - name: setLogDisplayIndex
+    return_type: void
+    parameters:
+    - type: size_t
+      name: index
+    modifiers: []
+    line: 281
+  - name: setLogDisplayType
+    return_type: void
+    parameters:
+    - type: std::initializer_list<m5gfx::board_t>
+      name: board_list
+    modifiers: []
+    line: 283
+  - name: setLogDisplayType
+    return_type: void
+    parameters:
+    - type: m5gfx::board_t
+      name: board
+    modifiers: []
+    line: 285
+  - name: getUpdateMsec
+    return_type: std::uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 288
+  - name: config_t
+    return_type: return
+    parameters: []
+    modifiers: []
+    line: 292
+  - name: getBoard
+    return_type: board_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 316
+  - name: update
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 319
+  - name: dsp
+    return_type: M5AtomDisplay
+    parameters:
+    - type: cfg.atom_display
+      name: ''
+    modifiers: []
+    line: 364
+  - name: dsp
+    return_type: M5ModuleDisplay
+    parameters:
+    - type: cfg.module_display
+      name: ''
+    modifiers: []
+    line: 388
+  - name: dsp
+    return_type: M5UnitOLED
+    parameters:
+    - type: cfg.unit_oled
+      name: ''
+    modifiers: []
+    line: 431
+  - name: dsp
+    return_type: M5UnitMiniOLED
+    parameters:
+    - type: cfg.unit_mini_oled
+      name: ''
+    modifiers: []
+    line: 455
+  - name: dsp
+    return_type: M5UnitGLASS
+    parameters:
+    - type: cfg.unit_glass
+      name: ''
+    modifiers: []
+    line: 479
+  - name: dsp
+    return_type: M5UnitGLASS2
+    parameters:
+    - type: cfg.unit_glass2
+      name: ''
+    modifiers: []
+    line: 503
+  - name: dsp
+    return_type: M5UnitLCD
+    parameters:
+    - type: cfg.unit_lcd
+      name: ''
+    modifiers: []
+    line: 527
+  - name: dsp
+    return_type: M5ModuleRCA
+    parameters:
+    - type: cfg.module_rca
+      name: ''
+    modifiers: []
+    line: 556
+  - name: dsp
+    return_type: M5UnitRCA
+    parameters:
+    - type: cfg.unit_rca
+      name: ''
+    modifiers: []
+    line: 579
+  - name: setTouchButtonHeightByRatio
+    return_type: void
+    parameters:
+    - type: uint8_t
+      name: ratio
+    modifiers: []
+    line: 597
+  - name: setTouchButtonHeight
+    return_type: void
+    parameters:
+    - type: uint16_t
+      name: pixel
+    modifiers: []
+    line: 598
+  - name: getTouchButtonHeight
+    return_type: uint16_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 599
+  - name: getIOExpander
+    return_type: IOExpander_Base&
+    parameters:
+    - type: size_t
+      name: idx
+    modifiers: []
+    line: 601
+- name: LGFXBase
+  namespace: lgfx
+  file: LGFXBase.hpp
+  methods:
+  - name: color16to8
+    return_type: uint8_t
+    parameters:
+    - type: uint32_t
+      name: rgb565
+    modifiers: []
+    line: 102
+  - name: color8to16
+    return_type: uint16_t
+    parameters:
+    - type: uint32_t
+      name: rgb332
+    modifiers: []
+    line: 106
+  - name: color16to24
+    return_type: uint32_t
+    parameters:
+    - type: uint32_t
+      name: rgb565
+    modifiers: []
+    line: 110
+  - name: color24to16
+    return_type: uint16_t
+    parameters:
+    - type: uint32_t
+      name: rgb888
+    modifiers: []
+    line: 114
+  - name: setColor
+    return_type: void
+    parameters:
+    - type: uint8_t
+      name: r
+    - type: uint8_t
+      name: g
+    - type: uint8_t
+      name: b
+    modifiers: []
+    line: 120
+  - name: setColor
+    return_type: void
+    parameters:
+    - type: T
+      name: color
+    modifiers: []
+    line: 123
+  - name: setRawColor
+    return_type: void
+    parameters:
+    - type: uint32_t
+      name: c
+    modifiers: []
+    line: 124
+  - name: getRawColor
+    return_type: uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 125
+  - name: setBaseColor
+    return_type: void
+    parameters:
+    - type: T
+      name: c
+    modifiers: []
+    line: 126
+  - name: getBaseColor
+    return_type: uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 127
+  - name: getColorConverter
+    return_type: color_conv_t*
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 128
+  - name: getColorDepth
+    return_type: color_depth_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 129
+  - name: startWrite
+    return_type: void
+    parameters:
+    - type: bool
+      name: transaction
+    modifiers: []
+    line: 137
+  - name: endWrite
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 139
+  - name: beginTransaction
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 140
+  - name: endTransaction
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 141
+  - name: getStartCount
+    return_type: uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 142
+  - name: setWindow
+    return_type: void
+    parameters:
+    - type: uint_fast16_t
+      name: xs
+    - type: uint_fast16_t
+      name: ys
+    - type: uint_fast16_t
+      name: xe
+    - type: uint_fast16_t
+      name: ye
+    modifiers: []
+    line: 144
+  - name: writePixel
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 145
+  - name: writePixel
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 146
+  - name: writeFastVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 147
+  - name: writeFastVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 148
+  - name: writeFastHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 149
+  - name: writeFastHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    modifiers: []
+    line: 150
+  - name: writeFillRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 151
+  - name: writeFillRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 152
+  - name: writeFillRectPreclipped
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 153
+  - name: writeFillRectPreclipped
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 154
+  - name: writeColor
+    return_type: void
+    parameters:
+    - type: const T&
+      name: color
+    - type: uint32_t
+      name: length
+    modifiers: []
+    line: 155
+  - name: pushBlock
+    return_type: void
+    parameters:
+    - type: const T&
+      name: color
+    - type: uint32_t
+      name: length
+    modifiers: []
+    line: 156
+  - name: drawPixel
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 162
+  - name: drawPixel
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 167
+  - name: drawFastVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 173
+  - name: drawFastVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 179
+  - name: drawFastHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 185
+  - name: drawFastHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    modifiers: []
+    line: 191
+  - name: fillRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 198
+  - name: fillRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 205
+  - name: drawRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 212
+  - name: drawRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 219
+  - name: drawRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 220
+  - name: drawRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 221
+  - name: fillRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 222
+  - name: fillRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 223
+  - name: drawCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 224
+  - name: drawCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 225
+  - name: fillCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 226
+  - name: fillCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 227
+  - name: drawEllipse
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: rx
+    - type: int32_t
+      name: ry
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 228
+  - name: drawEllipse
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: rx
+    - type: int32_t
+      name: ry
+    modifiers: []
+    line: 229
+  - name: fillEllipse
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: rx
+    - type: int32_t
+      name: ry
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 230
+  - name: fillEllipse
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: rx
+    - type: int32_t
+      name: ry
+    modifiers: []
+    line: 231
+  - name: drawLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 232
+  - name: drawLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    modifiers: []
+    line: 233
+  - name: drawTriangle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 234
+  - name: drawTriangle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    modifiers: []
+    line: 235
+  - name: fillTriangle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 236
+  - name: fillTriangle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    modifiers: []
+    line: 237
+  - name: drawBezier
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 238
+  - name: drawBezier
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    modifiers: []
+    line: 239
+  - name: drawBezier
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    - type: int32_t
+      name: x3
+    - type: int32_t
+      name: y3
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 240
+  - name: drawBezier
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: int32_t
+      name: x2
+    - type: int32_t
+      name: y2
+    - type: int32_t
+      name: x3
+    - type: int32_t
+      name: y3
+    modifiers: []
+    line: 241
+  - name: drawEllipseArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0x
+    - type: int32_t
+      name: r1x
+    - type: int32_t
+      name: r0y
+    - type: int32_t
+      name: r1y
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 242
+  - name: drawEllipseArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0x
+    - type: int32_t
+      name: r1x
+    - type: int32_t
+      name: r0y
+    - type: int32_t
+      name: r1y
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    modifiers: []
+    line: 243
+  - name: fillEllipseArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0x
+    - type: int32_t
+      name: r1x
+    - type: int32_t
+      name: r0y
+    - type: int32_t
+      name: r1y
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 244
+  - name: fillEllipseArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0x
+    - type: int32_t
+      name: r1x
+    - type: int32_t
+      name: r0y
+    - type: int32_t
+      name: r1y
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    modifiers: []
+    line: 245
+  - name: drawArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0
+    - type: int32_t
+      name: r1
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 246
+  - name: drawArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0
+    - type: int32_t
+      name: r1
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    modifiers: []
+    line: 247
+  - name: fillArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0
+    - type: int32_t
+      name: r1
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 248
+  - name: fillArc
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r0
+    - type: int32_t
+      name: r1
+    - type: float
+      name: angle0
+    - type: float
+      name: angle1
+    modifiers: []
+    line: 249
+  - name: drawCircleHelper
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: uint_fast8_t
+      name: cornername
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 250
+  - name: drawCircleHelper
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: uint_fast8_t
+      name: cornername
+    modifiers: []
+    line: 251
+  - name: fillCircleHelper
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: uint_fast8_t
+      name: corners
+    - type: int32_t
+      name: delta
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 252
+  - name: fillCircleHelper
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: uint_fast8_t
+      name: corners
+    - type: int32_t
+      name: delta
+    modifiers: []
+    line: 253
+  - name: floodFill
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 254
+  - name: floodFill
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 255
+  - name: paint
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 256
+  - name: paint
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 257
+  - name: fillAffine
+    return_type: void
+    parameters:
+    - type: const float
+      name: matrix[6]
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 259
+  - name: fillAffine
+    return_type: void
+    parameters:
+    - type: const float
+      name: matrix[6]
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 260
+  - name: drawGradientHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: const T&
+      name: colorstart
+    - type: const T&
+      name: colorend
+    modifiers: []
+    line: 262
+  - name: drawGradientVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: colorstart
+    - type: const T&
+      name: colorend
+    modifiers: []
+    line: 263
+  - name: drawGradientLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: const T&
+      name: colorstart
+    - type: const T&
+      name: colorend
+    modifiers: []
+    line: 264
+  - name: mapGradient
+    return_type: T
+    parameters:
+    - type: float
+      name: val
+    - type: float
+      name: min
+    - type: float
+      name: max
+    - type: const colors_t
+      name: gr
+    modifiers: []
+    line: 273
+  - name: mapGradient
+    return_type: T
+    parameters:
+    - type: float
+      name: val
+    - type: float
+      name: min
+    - type: double
+      name: max
+    - type: const rgb888_t
+      name: "*colors"
+    - type: uint32_t
+      name: count
+    modifiers: []
+    line: 275
+  - name: drawSmoothLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 277
+  - name: drawGradientLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: const colors_t
+      name: colors
+    modifiers: []
+    line: 278
+  - name: drawWideLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: float
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 279
+  - name: drawWideLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: float
+      name: r
+    - type: const colors_t
+      name: colors
+    modifiers: []
+    line: 280
+  - name: drawWedgeLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: float
+      name: r0
+    - type: float
+      name: r1
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 281
+  - name: drawWedgeLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x0
+    - type: int32_t
+      name: y0
+    - type: int32_t
+      name: x1
+    - type: int32_t
+      name: y1
+    - type: float
+      name: r0
+    - type: float
+      name: r1
+    - type: const colors_t
+      name: colors
+    modifiers: []
+    line: 282
+  - name: drawSpot
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: float
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 283
+  - name: drawGradientSpot
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: float
+      name: r
+    - type: const colors_t
+      name: gr
+    modifiers: []
+    line: 284
+  - name: drawGradientHLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint32_t
+      name: w
+    - type: const colors_t
+      name: colors
+    modifiers: []
+    line: 285
+  - name: drawGradientVLine
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint32_t
+      name: h
+    - type: const colors_t
+      name: colors
+    modifiers: []
+    line: 286
+  - name: fillGradientRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint32_t
+      name: w
+    - type: uint32_t
+      name: h
+    - type: const colors_t
+      name: colors
+    - type: fill_style_t
+      name: style
+    modifiers: []
+    line: 287
+  - name: fillGradientRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint32_t
+      name: w
+    - type: uint32_t
+      name: h
+    - type: const T&
+      name: start
+    - type: const T&
+      name: end
+    - type: fill_style_t
+      name: style
+    modifiers: []
+    line: 288
+  - name: fillSmoothRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 293
+  - name: fillSmoothRoundRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 294
+  - name: fillSmoothCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 296
+  - name: fillSmoothCircle
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: r
+    modifiers: []
+    line: 297
+  - name: fillScreen
+    return_type: void
+    parameters:
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 299
+  - name: fillScreen
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 300
+  - name: clear
+    return_type: void
+    parameters:
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 302
+  - name: clear
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 303
+  - name: clearDisplay
+    return_type: void
+    parameters:
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 304
+  - name: clearDisplay
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 305
+  - name: setPivot
+    return_type: void
+    parameters:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    modifiers: []
+    line: 307
+  - name: getPivotX
+    return_type: float
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 308
+  - name: getPivotY
+    return_type: float
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 309
+  - name: width
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 311
+  - name: height
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 312
+  - name: hasPalette
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 313
+  - name: getPaletteCount
+    return_type: uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 314
+  - name: getPalette
+    return_type: RGBColor*
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 315
+  - name: isReadable
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 316
+  - name: isEPD
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 317
+  - name: getSwapBytes
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 318
+  - name: setSwapBytes
+    return_type: void
+    parameters:
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 319
+  - name: isBusShared
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 320
+  - name: isSPIShared
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 322
+  - name: display
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 323
+  - name: display
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 324
+  - name: waitDisplay
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 325
+  - name: displayBusy
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 326
+  - name: setAutoDisplay
+    return_type: void
+    parameters:
+    - type: bool
+      name: flg
+    modifiers: []
+    line: 327
+  - name: initDMA
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 328
+  - name: waitDMA
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 329
+  - name: dmaBusy
+    return_type: bool
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 330
+  - name: setScrollRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 332
+  - name: writePixels
+    return_type: void
+    parameters:
+    - type: const T*
+      name: data
+    - type: int32_t
+      name: len
+    modifiers: []
+    line: 334
+  - name: writePixels
+    return_type: void
+    parameters:
+    - type: const uint16_t*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 335
+  - name: writePixels
+    return_type: void
+    parameters:
+    - type: const void*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 336
+  - name: writePixelsDMA
+    return_type: void
+    parameters:
+    - type: const T*
+      name: data
+    - type: int32_t
+      name: len
+    modifiers: []
+    line: 338
+  - name: writePixelsDMA
+    return_type: void
+    parameters:
+    - type: const uint16_t*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 339
+  - name: writePixelsDMA
+    return_type: void
+    parameters:
+    - type: const void*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 340
+  - name: pushPixels
+    return_type: void
+    parameters:
+    - type: T*
+      name: data
+    - type: int32_t
+      name: len
+    modifiers: []
+    line: 342
+  - name: pushPixels
+    return_type: void
+    parameters:
+    - type: const uint16_t*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 343
+  - name: pushPixels
+    return_type: void
+    parameters:
+    - type: const void*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 344
+  - name: pushPixelsDMA
+    return_type: void
+    parameters:
+    - type: T*
+      name: data
+    - type: int32_t
+      name: len
+    modifiers: []
+    line: 346
+  - name: pushPixelsDMA
+    return_type: void
+    parameters:
+    - type: const uint16_t*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 347
+  - name: pushPixelsDMA
+    return_type: void
+    parameters:
+    - type: const void*
+      name: data
+    - type: int32_t
+      name: len
+    - type: bool
+      name: swap
+    modifiers: []
+    line: 348
+  - name: drawBitmap
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const uint8_t*
+      name: bitmap
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 364
+  - name: drawBitmap
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const uint8_t*
+      name: bitmap
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: fgcolor
+    - type: const T&
+      name: bgcolor
+    modifiers: []
+    line: 365
+  - name: drawXBitmap
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const uint8_t*
+      name: bitmap
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: color
+    modifiers: []
+    line: 366
+  - name: drawXBitmap
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const uint8_t*
+      name: bitmap
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const T&
+      name: fgcolor
+    - type: const T&
+      name: bgcolor
+    modifiers: []
+    line: 367
+  - name: getScanLine
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 382
+  - name: getRotation
+    return_type: uint8_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 384
+  - name: setRotation
+    return_type: void
+    parameters:
+    - type: uint_fast8_t
+      name: rotation
+    modifiers: []
+    line: 385
+  - name: setColorDepth
+    return_type: void
+    parameters:
+    - type: int
+      name: bits
+    modifiers: []
+    line: 386
+  - name: setColorDepth
+    return_type: void
+    parameters:
+    - type: color_depth_t
+      name: depth
+    modifiers: []
+    line: 387
+  - name: setAddrWindow
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 389
+  - name: setClipRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 391
+  - name: getClipRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: "*x"
+    - type: int32_t
+      name: "*y"
+    - type: int32_t
+      name: "*w"
+    - type: int32_t
+      name: "*h"
+    modifiers: []
+    line: 392
+  - name: clearClipRect
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 393
+  - name: setScrollRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    modifiers: []
+    line: 395
+  - name: getScrollRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: "*x"
+    - type: int32_t
+      name: "*y"
+    - type: int32_t
+      name: "*w"
+    - type: int32_t
+      name: "*h"
+    modifiers: []
+    line: 396
+  - name: clearScrollRect
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 397
+  - name: pushImage
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: pixelcopy_t
+      name: "*param"
+    - type: bool
+      name: use_dma
+    modifiers: []
+    line: 441
+  - name: pushGrayscaleImage
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const uint8_t*
+      name: image
+    - type: color_depth_t
+      name: depth
+    - type: const T&
+      name: forecolor
+    - type: const T&
+      name: backcolor
+    modifiers: []
+    line: 563
+  - name: pushGrayscaleImageRotateZoom
+    return_type: void
+    parameters:
+    - type: float
+      name: dst_x
+    - type: float
+      name: dst_y
+    - type: float
+      name: src_x
+    - type: float
+      name: src_y
+    - type: float
+      name: angle
+    - type: float
+      name: zoom_x
+    - type: float
+      name: zoom_y
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const uint8_t*
+      name: image
+    - type: color_depth_t
+      name: depth
+    - type: const T&
+      name: forecolor
+    - type: const T&
+      name: backcolor
+    modifiers: []
+    line: 564
+  - name: pushGrayscaleImageAffine
+    return_type: void
+    parameters:
+    - type: const float
+      name: matrix[6]
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: const uint8_t*
+      name: image
+    - type: color_depth_t
+      name: depth
+    - type: const T&
+      name: forecolor
+    - type: const T&
+      name: backcolor
+    modifiers: []
+    line: 565
+  - name: pushAlphaImage
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: pixelcopy_t
+      name: "*param"
+    modifiers: []
+    line: 594
+  - name: readRectRGB
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: uint8_t*
+      name: data
+    modifiers: []
+    line: 625
+  - name: p
+    return_type: pixelcopy_t
+    parameters:
+    - type: nullptr
+      name: ''
+    - type: get_depth<T>::value
+      name: ''
+    - type: _read_conv.depth
+      name: ''
+    - type: 'false'
+      name: ''
+    - type: src_palette
+      name: ''
+    modifiers: []
+    line: 636
+  - name: readRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: uint8_t*
+      name: data
+    modifiers: []
+    line: 652
+  - name: readRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: uint16_t*
+      name: data
+    modifiers: []
+    line: 653
+  - name: readRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: void*
+      name: data
+    modifiers: []
+    line: 654
+  - name: scroll
+    return_type: void
+    parameters:
+    - type: int_fast16_t
+      name: dx
+    - type: int_fast16_t
+      name: dy
+    modifiers: []
+    line: 656
+  - name: copyRect
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: dst_x
+    - type: int32_t
+      name: dst_y
+    - type: int32_t
+      name: w
+    - type: int32_t
+      name: h
+    - type: int32_t
+      name: src_x
+    - type: int32_t
+      name: src_y
+    modifiers: []
+    line: 657
+  - name: setCursor
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 661
+  - name: setCursor
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 662
+  - name: setCursor
+    return_type: void
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 663
+  - name: getCursorX
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 664
+  - name: getCursorY
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 665
+  - name: setTextStyle
+    return_type: void
+    parameters:
+    - type: const TextStyle&
+      name: text_style
+    modifiers: []
+    line: 666
+  - name: setTextSize
+    return_type: void
+    parameters:
+    - type: float
+      name: size
+    modifiers: []
+    line: 668
+  - name: setTextSize
+    return_type: void
+    parameters:
+    - type: float
+      name: sx
+    - type: float
+      name: sy
+    modifiers: []
+    line: 669
+  - name: getTextSizeX
+    return_type: float
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 670
+  - name: getTextSizeY
+    return_type: float
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 671
+  - name: setTextDatum
+    return_type: void
+    parameters:
+    - type: uint8_t
+      name: datum
+    modifiers: []
+    line: 673
+  - name: setTextDatum
+    return_type: void
+    parameters:
+    - type: textdatum_t
+      name: datum
+    modifiers: []
+    line: 674
+  - name: getTextDatum
+    return_type: textdatum_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 675
+  - name: setTextPadding
+    return_type: void
+    parameters:
+    - type: uint32_t
+      name: padding_x
+    modifiers: []
+    line: 676
+  - name: getTextPadding
+    return_type: uint32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 677
+  - name: setTextWrap
+    return_type: void
+    parameters:
+    - type: bool
+      name: wrapX
+    - type: bool
+      name: wrapY
+    modifiers: []
+    line: 678
+  - name: setTextScroll
+    return_type: void
+    parameters:
+    - type: bool
+      name: scroll
+    modifiers: []
+    line: 679
+  - name: setTextColor
+    return_type: void
+    parameters:
+    - type: T
+      name: color
+    modifiers: []
+    line: 682
+  - name: setTextColor
+    return_type: void
+    parameters:
+    - type: T1
+      name: fgcolor
+    - type: T2
+      name: bgcolor
+    modifiers: []
+    line: 686
+  - name: fontHeight
+    return_type: int32_t
+    parameters:
+    - type: uint8_t
+      name: font
+    modifiers:
+    - const
+    line: 697
+  - name: fontHeight
+    return_type: int32_t
+    parameters:
+    - type: const IFont*
+      name: font
+    modifiers:
+    - const
+    line: 698
+  - name: fontHeight
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 699
+  - name: fontWidth
+    return_type: int32_t
+    parameters:
+    - type: uint8_t
+      name: font
+    modifiers:
+    - const
+    line: 700
+  - name: fontWidth
+    return_type: int32_t
+    parameters:
+    - type: const IFont*
+      name: font
+    modifiers:
+    - const
+    line: 701
+  - name: fontWidth
+    return_type: int32_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers:
+    - const
+    line: 702
+  - name: textLength
+    return_type: int32_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: width
+    modifiers: []
+    line: 703
+  - name: textWidth
+    return_type: int32_t
+    parameters:
+    - type: const char
+      name: "*string"
+    modifiers: []
+    line: 704
+  - name: textWidth
+    return_type: int32_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 705
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 708
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 709
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 710
+  - name: drawNumber
+    return_type: size_t
+    parameters:
+    - type: long
+      name: long_num
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 713
+  - name: drawNumber
+    return_type: size_t
+    parameters:
+    - type: long
+      name: long_num
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    modifiers: []
+    line: 714
+  - name: drawNumber
+    return_type: size_t
+    parameters:
+    - type: long
+      name: long_num
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 715
+  - name: drawFloat
+    return_type: size_t
+    parameters:
+    - type: float
+      name: floatNumber
+    - type: uint8_t
+      name: dp
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 718
+  - name: drawFloat
+    return_type: size_t
+    parameters:
+    - type: float
+      name: floatNumber
+    - type: uint8_t
+      name: dp
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    modifiers: []
+    line: 719
+  - name: drawFloat
+    return_type: size_t
+    parameters:
+    - type: float
+      name: floatNumber
+    - type: uint8_t
+      name: dp
+    - type: int32_t
+      name: poX
+    - type: int32_t
+      name: poY
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 720
+  - name: drawCentreString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 725
+  - name: drawCenterString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 726
+  - name: drawRightString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 727
+  - name: drawCentreString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 728
+  - name: drawCenterString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 729
+  - name: drawRightString
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 730
+  - name: textLength
+    return_type: int32_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: width
+    modifiers: []
+    line: 733
+  - name: textWidth
+    return_type: int32_t
+    parameters:
+    - type: const String&
+      name: string
+    modifiers: []
+    line: 734
+  - name: textWidth
+    return_type: int32_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 735
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 738
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 739
+  - name: drawString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 740
+  - name: drawCentreString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 745
+  - name: drawCenterString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 746
+  - name: drawRightString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 747
+  - name: drawCentreString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 748
+  - name: drawCenterString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 749
+  - name: drawRightString
+    return_type: size_t
+    parameters:
+    - type: const String&
+      name: string
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 750
+  - name: drawChar
+    return_type: size_t
+    parameters:
+    - type: uint16_t
+      name: uniCode
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint8_t
+      name: font
+    modifiers: []
+    line: 753
+  - name: drawChar
+    return_type: size_t
+    parameters:
+    - type: uint16_t
+      name: uniCode
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    modifiers: []
+    line: 754
+  - name: drawChar
+    return_type: size_t
+    parameters:
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: uint16_t
+      name: uniCode
+    - type: T
+      name: color
+    - type: T
+      name: bg
+    - type: float
+      name: size
+    modifiers: []
+    line: 757
+  - name: setTextFont
+    return_type: void
+    parameters:
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 789
+  - name: setFreeFont
+    return_type: void
+    parameters:
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 792
+  - name: setFont
+    return_type: void
+    parameters:
+    - type: const IFont*
+      name: font
+    modifiers: []
+    line: 796
+  - name: loadFont
+    return_type: bool
+    parameters:
+    - type: const uint8_t*
+      name: array
+    modifiers: []
+    line: 799
+  - name: load_font_with_path
+    return_type: return
+    parameters:
+    - type: path
+      name: ''
+    modifiers: []
+    line: 806
+  - name: load_font_with_path
+    return_type: return
+    parameters:
+    - type: path
+      name: ''
+    modifiers: []
+    line: 815
+  - name: load_font
+    return_type: return
+    parameters:
+    - type: data
+      name: ''
+    modifiers: []
+    line: 820
+  - name: unloadFont
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 824
+  - name: showFont
+    return_type: void
+    parameters:
+    - type: uint32_t
+      name: td
+    modifiers: []
+    line: 827
+  - name: cp437
+    return_type: void
+    parameters:
+    - type: bool
+      name: enable
+    modifiers: []
+    line: 829
+  - name: setAttribute
+    return_type: void
+    parameters:
+    - type: attribute_t
+      name: attr_id
+    - type: uint8_t
+      name: param
+    modifiers: []
+    line: 831
+  - name: getAttribute
+    return_type: uint8_t
+    parameters:
+    - type: attribute_t
+      name: attr_id
+    modifiers: []
+    line: 832
+  - name: getAttribute
+    return_type: uint8_t
+    parameters:
+    - type: uint8_t
+      name: attr_id
+    modifiers: []
+    line: 833
+  - name: setFileStorage
+    return_type: void
+    parameters:
+    - type: T&
+      name: fs
+    modifiers: []
+    line: 836
+  - name: setFileStorage
+    return_type: void
+    parameters:
+    - type: T*
+      name: fs
+    modifiers: []
+    line: 841
+  - name: clearFileStorage
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 843
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: str[]
+    modifiers: []
+    line: 850
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: char
+      name: c
+    modifiers: []
+    line: 851
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: int
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 852
+  - name: printNumber
+    return_type: return
+    parameters:
+    - type: "n"
+      name: ''
+    - type: '10'
+      name: ''
+    modifiers: []
+    line: 861
+  - name: printNumber
+    return_type: return
+    parameters:
+    - type: "n"
+      name: ''
+    - type: base
+      name: ''
+    modifiers: []
+    line: 863
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: unsigned char
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 866
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: unsigned int
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 867
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: unsigned long
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 868
+  - name: print
+    return_type: size_t
+    parameters:
+    - type: double
+      name: "n"
+    - type: int
+      name: digits
+    modifiers: []
+    line: 869
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 871
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: c[]
+    modifiers: []
+    line: 872
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: char
+      name: c
+    modifiers: []
+    line: 873
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: int
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 874
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: long
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 875
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: unsigned char
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 876
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: unsigned int
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 877
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: unsigned long
+      name: "n"
+    - type: int
+      name: base
+    modifiers: []
+    line: 878
+  - name: println
+    return_type: size_t
+    parameters:
+    - type: double
+      name: "n"
+    - type: int
+      name: digits
+    modifiers: []
+    line: 879
+  - name: write
+    return_type: size_t
+    parameters:
+    - type: const char*
+      name: str
+    modifiers: []
+    line: 886
+  - name: write
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*buf"
+    - type: size_t
+      name: size
+    modifiers: []
+    line: 887
+  - name: printf
+    return_type: size_t
+    parameters:
+    - type: const char*
+      name: format
+    - type: "..."
+      name: ''
+    modifiers: []
+    line: 896
+  - name: write
+    return_type: size_t
+    parameters:
+    - type: const uint8_t
+      name: "*buf"
+    - type: size_t
+      name: size
+    modifiers: []
+    line: 900
+  - name: write
+    return_type: size_t
+    parameters:
+    - type: uint8_t
+      name: utf8
+    modifiers: []
+    line: 901
+  - name: vprintf
+    return_type: size_t
+    parameters:
+    - type: const char
+      name: "*format"
+    - type: va_list
+      name: arg
+    modifiers: []
+    line: 902
+  - name: qrcode
+    return_type: void
+    parameters:
+    - type: const String
+      name: "&string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: width
+    - type: uint8_t
+      name: version
+    modifiers: []
+    line: 906
+  - name: qrcode
+    return_type: void
+    parameters:
+    - type: const char
+      name: "*string"
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: width
+    - type: uint8_t
+      name: version
+    - type: bool
+      name: margin
+    modifiers: []
+    line: 910
+  - name: file
+    return_type: DataWrapperT<T>
+    parameters:
+    - type: "&fs"
+      name: ''
+    modifiers: []
+    line: 949
+  - name: createPng
+    return_type: void*
+    parameters:
+    - type: size_t*
+      name: datalen
+    - type: int32_t
+      name: x
+    - type: int32_t
+      name: "y"
+    - type: int32_t
+      name: width
+    - type: int32_t
+      name: height
+    modifiers: []
+    line: 976
+  - name: releasePngMemory
+    return_type: void
+    parameters:
+    - type: void
+      name: ''
+    modifiers: []
+    line: 978
+  - name: prepareTmpTransaction
+    return_type: void
+    parameters:
+    - type: DataWrapper*
+      name: data
+    modifiers: []
+    line: 996

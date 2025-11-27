@@ -16,8 +16,27 @@ void c_m5_gfx_push_pixels_dma(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RE
 void c_m5_gfx_read_rect_rgb(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_read_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_p(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_copy_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_scroll(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_copy_rect(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 7) {
+        int32_t dst_x = GET_INT_ARG(1);
+        int32_t dst_y = GET_INT_ARG(2);
+        int32_t w = GET_INT_ARG(3);
+        int32_t h = GET_INT_ARG(4);
+        int32_t src_x = GET_INT_ARG(5);
+        int32_t src_y = GET_INT_ARG(6);
+        M5.Display.copyRect(dst_x, dst_y, w, h, src_x, src_y);
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_scroll(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 2) {
+        int32_t dx = GET_INT_ARG(1);
+        int32_t dy = GET_INT_ARG(2);
+        M5.Display.scroll(dx, dy);
+    }
+    SET_NIL_RETURN();
+}
 
 void mrbc_m5gfx_image_init(struct VM *vm, mrbc_class *class_M5Gfx)
 {

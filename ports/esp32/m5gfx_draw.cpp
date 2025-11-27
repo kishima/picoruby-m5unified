@@ -71,8 +71,32 @@ void c_m5_gfx_draw_spot(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN()
 void c_m5_gfx_draw_gradient_spot(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_bitmap(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_x_bitmap(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_draw_string(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_draw_number(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void
+c_m5_gfx_draw_string(mrbc_vm *vm, mrbc_value *v, int argc)
+{
+    if (argc >= 3) {
+        mrbc_value str_val = GET_ARG(1);
+        if (str_val.tt == MRBC_TT_STRING) {
+            const char *str = (const char *)str_val.string->data;
+            int32_t x = GET_INT_ARG(2);
+            int32_t y = GET_INT_ARG(3);
+            M5.Display.drawString(str, x, y);
+        }
+    }
+    SET_NIL_RETURN();
+}
+
+void
+c_m5_gfx_draw_number(mrbc_vm *vm, mrbc_value *v, int argc)
+{
+    if (argc >= 3) {
+        long number = GET_INT_ARG(1);
+        int32_t x = GET_INT_ARG(2);
+        int32_t y = GET_INT_ARG(3);
+        M5.Display.drawNumber(number, x, y);
+    }
+    SET_NIL_RETURN();
+}
 void c_m5_gfx_draw_float(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_centre_string(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_center_string(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }

@@ -38,9 +38,13 @@ c_m5_gfx_color8to16(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_color16to24(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-    /* TODO: Implement color16to24 conversion */
-    SET_INT_RETURN(0);
+    if (argc >= 1) {
+        uint16_t color16 = GET_INT_ARG(1);
+        uint32_t color24 = M5.Display.color16to24(color16);
+        SET_INT_RETURN(color24);
+    } else {
+        SET_INT_RETURN(0);
+    }
 }
 
 /* ==============================================
@@ -49,9 +53,13 @@ c_m5_gfx_color16to24(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_color24to16(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-    /* TODO: Implement color24to16 conversion */
-    SET_INT_RETURN(0);
+    if (argc >= 1) {
+        uint32_t color24 = GET_INT_ARG(1);
+        uint16_t color16 = M5.Display.color24to16(color24);
+        SET_INT_RETURN(color16);
+    } else {
+        SET_INT_RETURN(0);
+    }
 }
 
 /* ==============================================
@@ -60,8 +68,15 @@ c_m5_gfx_color24to16(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_gfx_set_color(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract RGB parameters */
-    /* TODO: Call setColor */
+    if (argc >= 3) {
+        uint8_t r = GET_INT_ARG(1);
+        uint8_t g = GET_INT_ARG(2);
+        uint8_t b = GET_INT_ARG(3);
+        M5.Display.setColor(r, g, b);
+    } else if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.setColor(color);
+    }
     SET_NIL_RETURN();
 }
 

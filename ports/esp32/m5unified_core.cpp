@@ -107,12 +107,8 @@ c_m5_unified_get_display(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_display_count(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-    /* Example:
-     * size_t count = M5.getDisplayCount();
-     */
-
-    SET_INT_RETURN(0);  // Placeholder
+    size_t count = M5.getDisplayCount();
+    SET_INT_RETURN(count);
 }
 
 /* ==============================================
@@ -153,10 +149,10 @@ c_m5_unified_get_display_index(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_set_primary_display(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        size_t index = GET_INT_ARG(1);
+        M5.setPrimaryDisplay(index);
+    }
     SET_NIL_RETURN();
 }
 
@@ -213,9 +209,8 @@ c_m5_unified_set_log_display_type(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_update_msec(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-
-    SET_INT_RETURN(0);  // Placeholder
+    uint32_t msec = M5.getUpdateMsec();
+    SET_INT_RETURN(msec);
 }
 
 /* ==============================================
@@ -240,9 +235,8 @@ c_m5_unified_config_t(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_board(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-
-    SET_INT_RETURN(0);  // Placeholder - return board enum value
+    auto board = M5.getBoard();
+    SET_INT_RETURN((int)board);
 }
 
 /* ==============================================
