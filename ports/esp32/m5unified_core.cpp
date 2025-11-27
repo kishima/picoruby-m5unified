@@ -36,18 +36,13 @@ c_m5_unified_begin(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_pin(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-    /* Example:
-     * mrbc_value name = GET_ARG(1);
-     */
-
-    /* TODO: Implement C++ method call */
-    /* Example:
-     * int8_t result = M5.getPin(...);
-     */
-
-    /* TODO: Convert return value */
-    SET_INT_RETURN(0);  // Placeholder
+    if (argc >= 1) {
+        int pin_name = GET_INT_ARG(1);
+        int8_t pin_num = M5.getPin((m5::pin_name_t)pin_name);
+        SET_INT_RETURN(pin_num);
+    } else {
+        SET_INT_RETURN(-1);
+    }
 }
 
 /* ==============================================
@@ -58,12 +53,9 @@ c_m5_unified_get_pin(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_button(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
-    /* TODO: Convert return value to wrapped object */
-    SET_NIL_RETURN();  // Placeholder
+    // Button_Class& is complex type - simplified implementation
+    // Returns nil for now (would require Button class wrapper)
+    SET_NIL_RETURN();
 }
 
 /* ==============================================
@@ -119,11 +111,9 @@ c_m5_unified_get_display_count(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_add_display(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
-    SET_INT_RETURN(0);  // Placeholder
+    // add_display requires M5GFX& parameter - not supported in simple binding
+    // Return 0 as unsupported
+    SET_INT_RETURN(0);
 }
 
 /* ==============================================
@@ -134,11 +124,9 @@ c_m5_unified_add_display(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_display_index(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
-    SET_INT_RETURN(0);  // Placeholder
+    // get_display_index requires IDisplay* parameter - not supported
+    // Return -1 as not found
+    SET_INT_RETURN(-1);
 }
 
 /* ==============================================
@@ -164,10 +152,10 @@ c_m5_unified_set_primary_display(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_set_primary_display_type(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        uint8_t display_type = GET_INT_ARG(1);
+        M5.setPrimaryDisplayType((m5gfx::board_t)display_type);
+    }
     SET_NIL_RETURN();
 }
 
@@ -179,10 +167,10 @@ c_m5_unified_set_primary_display_type(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_set_log_display_index(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        int8_t index = GET_INT_ARG(1);
+        M5.setLogDisplayIndex(index);
+    }
     SET_NIL_RETURN();
 }
 
@@ -194,10 +182,10 @@ c_m5_unified_set_log_display_index(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_set_log_display_type(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        uint8_t display_type = GET_INT_ARG(1);
+        M5.setLogDisplayType((m5gfx::board_t)display_type);
+    }
     SET_NIL_RETURN();
 }
 
@@ -221,10 +209,9 @@ c_m5_unified_get_update_msec(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_config_t(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-    /* Return config struct as hash or custom object */
-
-    SET_NIL_RETURN();  // Placeholder
+    // config_t is complex struct - not supported in simple binding
+    // Return nil for now
+    SET_NIL_RETURN();
 }
 
 /* ==============================================
@@ -261,8 +248,7 @@ c_m5_unified_update(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_dsp(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-
+    // dsp() method is deprecated or internal - no-op implementation
     SET_NIL_RETURN();
 }
 
@@ -274,10 +260,10 @@ c_m5_unified_dsp(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_set_touch_button_height_by_ratio(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        uint8_t ratio = GET_INT_ARG(1);
+        M5.setTouchButtonHeightByRatio(ratio);
+    }
     SET_NIL_RETURN();
 }
 
@@ -289,10 +275,10 @@ c_m5_unified_set_touch_button_height_by_ratio(mrbc_vm *vm, mrbc_value *v, int ar
 void
 c_m5_unified_set_touch_button_height(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
-
-    /* TODO: Implement C++ method call */
-
+    if (argc >= 1) {
+        uint16_t pixel = GET_INT_ARG(1);
+        M5.setTouchButtonHeight(pixel);
+    }
     SET_NIL_RETURN();
 }
 
@@ -304,9 +290,8 @@ c_m5_unified_set_touch_button_height(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_touch_button_height(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-
-    SET_INT_RETURN(0);  // Placeholder
+    uint16_t height = M5.getTouchButtonHeight();
+    SET_INT_RETURN(height);
 }
 
 /* ==============================================
@@ -317,10 +302,9 @@ c_m5_unified_get_touch_button_height(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_io_expander(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-    /* Return wrapped pointer or object */
-
-    SET_NIL_RETURN();  // Placeholder
+    // In_GPIO* is complex type - not supported in simple binding
+    // Return nil for now (would require IOExpander class wrapper)
+    SET_NIL_RETURN();
 }
 
 /* ==============================================
