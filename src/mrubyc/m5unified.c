@@ -3,7 +3,7 @@
 
 // Gem initialization function for mruby/c
 void
-mrbc_picoruby_m5unified_gem_init(struct VM *vm)
+mrbc_m5unified_init(mrbc_vm *vm)
 {
     mrbc_class *class_M5Gfx;
 
