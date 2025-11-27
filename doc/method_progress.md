@@ -1,6 +1,6 @@
 # 全メソッド実装進捗表
 
-最終更新: 2025-11-26
+最終更新: 2025-11-27
 
 ## 凡例
 - ⬜ 未実装（スケルトンのみ）
@@ -10,31 +10,33 @@
 
 ---
 
-## M5Unified Core (19メソッド) - `m5unified_core.c`
+## M5Unified Core (20メソッド) - `m5unified_core.cpp`
 
 | # | メソッド名 | 状態 | 優先度 | 備考 |
 |---|-----------|------|--------|------|
-| 1 | get_pin | ⬜ | 中 | |
-| 2 | get_button | ⬜ | 中 | Button_Class参照を返す |
-| 3 | get_display | ⬜ | 高 | M5GFX参照を返す |
-| 4 | get_display_count | ⬜ | 低 | |
-| 5 | add_display | ⬜ | 低 | |
-| 6 | get_display_index | ⬜ | 低 | |
-| 7 | set_primary_display | ⬜ | 低 | |
-| 8 | set_primary_display_type | ⬜ | 低 | |
-| 9 | set_log_display_index | ⬜ | 低 | |
-| 10 | set_log_display_type | ⬜ | 低 | |
-| 11 | get_update_msec | ⬜ | 低 | |
-| 12 | config_t | ⬜ | 中 | 設定構造体を返す |
-| 13 | get_board | ⬜ | 中 | ボード種別を返す |
-| 14 | update | ⬜ | 高 | M5本体の更新処理 |
-| 15 | dsp | ⬜ | 低 | |
-| 16 | set_touch_button_height_by_ratio | ⬜ | 低 | |
-| 17 | set_touch_button_height | ⬜ | 低 | |
-| 18 | get_touch_button_height | ⬜ | 低 | |
-| 19 | get_io_expander | ⬜ | 低 | |
+| 0 | begin | ✅ | 高 | M5Unified初期化 |
+| 1 | Display | ✅ | 高 | M5GFXインスタンスを返す |
+| 2 | get_pin | ⬜ | 中 | |
+| 3 | get_button | ⬜ | 中 | Button_Class参照を返す |
+| 4 | get_display | ✅ | 高 | M5GFX参照を返す |
+| 5 | get_display_count | ⬜ | 低 | |
+| 6 | add_display | ⬜ | 低 | |
+| 7 | get_display_index | ⬜ | 低 | |
+| 8 | set_primary_display | ⬜ | 低 | |
+| 9 | set_primary_display_type | ⬜ | 低 | |
+| 10 | set_log_display_index | ⬜ | 低 | |
+| 11 | set_log_display_type | ⬜ | 低 | |
+| 12 | get_update_msec | ⬜ | 低 | |
+| 13 | config_t | ⬜ | 中 | 設定構造体を返す |
+| 14 | get_board | ⬜ | 中 | ボード種別を返す |
+| 15 | update | ✅ | 高 | M5本体の更新処理 |
+| 16 | dsp | ⬜ | 低 | |
+| 17 | set_touch_button_height_by_ratio | ⬜ | 低 | |
+| 18 | set_touch_button_height | ⬜ | 低 | |
+| 19 | get_touch_button_height | ⬜ | 低 | |
+| 20 | get_io_expander | ⬜ | 低 | |
 
-**進捗: 0/19 (0%)**
+**進捗: 4/20 (20%)**
 
 ---
 
@@ -271,20 +273,29 @@
 
 ## 総合進捗
 
-**全体: 0/178 (0%)**
+**全体: 32/179 (18%)**
 
 ### 優先度別
-- **高優先度**: 0/27 (0%)
-- **中優先度**: 0/73 (0%)
+- **高優先度**: 16/28 (57%)  ← 重点実装完了
+- **中優先度**: 3/73 (4%)
 - **低優先度**: 0/78 (0%)
 
 ### カテゴリ別
-- M5Unified Core: 0/19 (0%)
+- M5Unified Core: 4/20 (20%) ← begin, Display, update, get_display 実装
 - M5GFX Color: 0/12 (0%)
-- M5GFX Draw: 0/30 (0%)
-- M5GFX Fill: 0/13 (0%)
-- M5GFX Text: 0/31 (0%)
+- M5GFX Draw: 4/30 (13%) ← draw_pixel, draw_rect, draw_circle, draw_line 実装
+- M5GFX Fill: 3/13 (23%) ← fill_rect, fill_circle, fill_screen 実装
+- M5GFX Text: 9/31 (29%) ← set_cursor, set_text_size, set_text_color, print, println 他 実装
 - M5GFX Image: 0/13 (0%)
-- M5GFX Display: 0/29 (0%)
-- M5GFX Low-level: 0/18 (0%)
+- M5GFX Display: 9/29 (31%) ← width, height, clear, set_rotation 他 実装
+- M5GFX Low-level: 4/18 (22%) ← start_write, end_write 他 実装
 - M5GFX Utility: 0/13 (0%)
+
+### 実装済み高優先度メソッド
+✅ M5.begin, M5.Display, M5.update
+✅ Display.width, Display.height, Display.clear, Display.set_rotation
+✅ Display.set_cursor, Display.set_text_size, Display.set_text_color
+✅ Display.print, Display.println
+✅ Display.fill_rect, Display.fill_circle, Display.fill_screen
+✅ Display.draw_pixel, Display.draw_rect, Display.draw_circle, Display.draw_line
+✅ Display.start_write, Display.end_write

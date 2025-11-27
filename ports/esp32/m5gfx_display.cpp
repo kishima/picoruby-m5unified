@@ -5,13 +5,43 @@
 
 extern "C" {
 
-void c_m5_gfx_get_rotation(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
-void c_m5_gfx_set_rotation(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_get_color_depth(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
-void c_m5_gfx_set_color_depth(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_get_rotation(mrbc_vm *vm, mrbc_value *v, int argc) {
+    uint8_t rotation = M5.Display.getRotation();
+    SET_INT_RETURN(rotation);
+}
+
+void c_m5_gfx_set_rotation(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 1) {
+        int rotation = GET_INT_ARG(1);
+        M5.Display.setRotation(rotation);
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_get_color_depth(mrbc_vm *vm, mrbc_value *v, int argc) {
+    uint8_t depth = M5.Display.getColorDepth();
+    SET_INT_RETURN(depth);
+}
+
+void c_m5_gfx_set_color_depth(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 1) {
+        int depth = GET_INT_ARG(1);
+        M5.Display.setColorDepth(depth);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_get_color_converter(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
-void c_m5_gfx_width(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
-void c_m5_gfx_height(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
+
+void c_m5_gfx_width(mrbc_vm *vm, mrbc_value *v, int argc) {
+    int32_t w = M5.Display.width();
+    SET_INT_RETURN(w);
+}
+
+void c_m5_gfx_height(mrbc_vm *vm, mrbc_value *v, int argc) {
+    int32_t h = M5.Display.height();
+    SET_INT_RETURN(h);
+}
 void c_m5_gfx_set_pivot(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_get_pivot_x(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
 void c_m5_gfx_get_pivot_y(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
@@ -21,9 +51,32 @@ void c_m5_gfx_clear_clip_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RE
 void c_m5_gfx_set_scroll_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_get_scroll_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
 void c_m5_gfx_clear_scroll_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_clear(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_clear_display(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_display(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_clear(mrbc_vm *vm, mrbc_value *v, int argc) {
+    // Clear with optional color argument
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.clear(color);
+    } else {
+        M5.Display.clear();
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_clear_display(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.clearDisplay(color);
+    } else {
+        M5.Display.clearDisplay();
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_display(mrbc_vm *vm, mrbc_value *v, int argc) {
+    M5.Display.display();
+    SET_NIL_RETURN();
+}
 void c_m5_gfx_wait_display(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_display_busy(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_set_auto_display(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }

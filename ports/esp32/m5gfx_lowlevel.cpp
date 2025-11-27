@@ -10,10 +10,25 @@
 
 extern "C" {
 
-void c_m5_gfx_start_write(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_end_write(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_begin_transaction(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_end_transaction(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_start_write(mrbc_vm *vm, mrbc_value *v, int argc) {
+    M5.Display.startWrite();
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_end_write(mrbc_vm *vm, mrbc_value *v, int argc) {
+    M5.Display.endWrite();
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_begin_transaction(mrbc_vm *vm, mrbc_value *v, int argc) {
+    M5.Display.beginTransaction();
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_end_transaction(mrbc_vm *vm, mrbc_value *v, int argc) {
+    M5.Display.endTransaction();
+    SET_NIL_RETURN();
+}
 void c_m5_gfx_get_start_count(mrbc_vm *vm, mrbc_value *v, int argc) { SET_INT_RETURN(0); }
 void c_m5_gfx_set_window(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_set_addr_window(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }

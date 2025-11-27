@@ -12,6 +12,7 @@ mrbc_m5unified_init(mrbc_vm *vm)
 
     /* Define M5Gfx class */
     class_M5Gfx = mrbc_define_class(vm, "M5Gfx", mrbc_class_object);
+    mrbc_class_M5Gfx = class_M5Gfx;  /* Store in global variable */
 
     /* Initialize M5GFX method groups */
     mrbc_m5gfx_color_init(vm, class_M5Gfx);

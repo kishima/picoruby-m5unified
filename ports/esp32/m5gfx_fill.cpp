@@ -10,9 +10,31 @@
 
 extern "C" {
 
-void c_m5_gfx_fill_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_rect(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 5) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int w = GET_INT_ARG(3);
+        int h = GET_INT_ARG(4);
+        uint32_t color = GET_INT_ARG(5);
+        M5.Display.fillRect(x, y, w, h, color);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_fill_round_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_fill_circle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_fill_circle(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 4) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int r = GET_INT_ARG(3);
+        uint32_t color = GET_INT_ARG(4);
+        M5.Display.fillCircle(x, y, r, color);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_fill_ellipse(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_triangle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_ellipse_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
@@ -22,7 +44,16 @@ void c_m5_gfx_fill_affine(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN
 void c_m5_gfx_fill_gradient_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_smooth_round_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_smooth_circle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_fill_screen(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_fill_screen(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.fillScreen(color);
+    } else {
+        M5.Display.fillScreen(0);
+    }
+    SET_NIL_RETURN();
+}
 
 void mrbc_m5gfx_fill_init(struct VM *vm, mrbc_class *class_M5Gfx)
 {

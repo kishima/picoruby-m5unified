@@ -5,14 +5,57 @@
 
 extern "C" {
 
-void c_m5_gfx_draw_pixel(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_draw_pixel(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 3) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        uint32_t color = GET_INT_ARG(3);
+        M5.Display.drawPixel(x, y, color);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_draw_fast_v_line(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_fast_h_line(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_draw_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_draw_rect(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 5) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int w = GET_INT_ARG(3);
+        int h = GET_INT_ARG(4);
+        uint32_t color = GET_INT_ARG(5);
+        M5.Display.drawRect(x, y, w, h, color);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_draw_round_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_draw_circle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_draw_circle(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 4) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int r = GET_INT_ARG(3);
+        uint32_t color = GET_INT_ARG(4);
+        M5.Display.drawCircle(x, y, r, color);
+    }
+    SET_NIL_RETURN();
+}
+
 void c_m5_gfx_draw_ellipse(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_draw_line(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_draw_line(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 5) {
+        int x0 = GET_INT_ARG(1);
+        int y0 = GET_INT_ARG(2);
+        int x1 = GET_INT_ARG(3);
+        int y1 = GET_INT_ARG(4);
+        uint32_t color = GET_INT_ARG(5);
+        M5.Display.drawLine(x0, y0, x1, y1, color);
+    }
+    SET_NIL_RETURN();
+}
 void c_m5_gfx_draw_triangle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_bezier(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_draw_ellipse_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }

@@ -10,6 +10,24 @@
 
 extern "C" {
 
+// Global class pointer for M5Gfx class (defined in C++ to avoid linking issues)
+mrbc_class *mrbc_class_M5Gfx = NULL;
+
+/* ==============================================
+ * Method: M5.begin
+ * Return: void
+ * Params: void (optional config)
+ * ============================================== */
+void
+c_m5_unified_begin(mrbc_vm *vm, mrbc_value *v, int argc)
+{
+    // Initialize M5Unified with default config
+    auto cfg = M5.config();
+    M5.begin(cfg);
+
+    SET_NIL_RETURN();
+}
+
 /* ==============================================
  * Method: M5.get_pin
  * Return: int8_t
@@ -49,6 +67,20 @@ c_m5_unified_get_button(mrbc_vm *vm, mrbc_value *v, int argc)
 }
 
 /* ==============================================
+ * Method: M5.Display  (property getter)
+ * Return: M5GFX instance
+ * Params: void
+ * ============================================== */
+void
+c_m5_unified_display(mrbc_vm *vm, mrbc_value *v, int argc)
+{
+    // Return the M5Gfx class (singleton pattern)
+    // The actual M5.Display reference is accessed via M5GFX methods
+    mrbc_value ret = mrbc_instance_new(vm, mrbc_class_M5Gfx, 0);
+    SET_RETURN(ret);
+}
+
+/* ==============================================
  * Method: M5.get_display
  * Return: M5GFX&
  * Params: size_t index
@@ -56,12 +88,15 @@ c_m5_unified_get_button(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_get_display(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Extract parameters */
+    // Default to index 0 if not specified
+    size_t index = 0;
+    if (argc >= 1) {
+        index = GET_INT_ARG(1);
+    }
 
-    /* TODO: Implement C++ method call */
-
-    /* TODO: Convert return value to M5Gfx instance */
-    SET_NIL_RETURN();  // Placeholder
+    // For now, return M5Gfx instance (index parameter not fully implemented)
+    mrbc_value ret = mrbc_instance_new(vm, mrbc_class_M5Gfx, 0);
+    SET_RETURN(ret);
 }
 
 /* ==============================================
@@ -218,10 +253,8 @@ c_m5_unified_get_board(mrbc_vm *vm, mrbc_value *v, int argc)
 void
 c_m5_unified_update(mrbc_vm *vm, mrbc_value *v, int argc)
 {
-    /* TODO: Implement C++ method call */
-    /* Example:
-     * M5.update();
-     */
+    // Update M5Unified (buttons, touch, etc.)
+    M5.update();
 
     SET_NIL_RETURN();
 }
@@ -308,6 +341,8 @@ mrbc_m5unified_core_init(struct VM *vm)
     m5_module = mrbc_define_module(vm, "M5");
 
     /* Register M5Unified methods as M5 module methods */
+    mrbc_define_method(vm, m5_module, "begin", c_m5_unified_begin);
+    mrbc_define_method(vm, m5_module, "Display", c_m5_unified_display);
     mrbc_define_method(vm, m5_module, "get_pin", c_m5_unified_get_pin);
     mrbc_define_method(vm, m5_module, "get_button", c_m5_unified_get_button);
     mrbc_define_method(vm, m5_module, "get_display", c_m5_unified_get_display);

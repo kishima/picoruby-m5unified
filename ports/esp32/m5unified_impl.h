@@ -14,6 +14,11 @@ extern "C" {
 #endif
 
 /*
+ * Global class pointers
+ */
+extern mrbc_class *mrbc_class_M5Gfx;
+
+/*
  * Forward declarations for all method implementations
  * These are organized by category and implemented in separate .cpp files
  */
