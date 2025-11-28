@@ -1,0 +1,87 @@
+/*
+ * M5GFX Fill Methods - mruby/c implementation
+ *
+ * This file contains M5GFX fill-related methods.
+ * Total methods: 13
+ */
+
+#include <M5Unified.h>
+#include "m5unified_impl.h"
+
+extern "C" {
+
+void c_m5_gfx_fill_rect(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 5) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int w = GET_INT_ARG(3);
+        int h = GET_INT_ARG(4);
+        uint32_t color = GET_INT_ARG(5);
+        M5.Display.fillRect(x, y, w, h, color);
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_fill_round_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_fill_circle(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 4) {
+        int x = GET_INT_ARG(1);
+        int y = GET_INT_ARG(2);
+        int r = GET_INT_ARG(3);
+        uint32_t color = GET_INT_ARG(4);
+        M5.Display.fillCircle(x, y, r, color);
+    }
+    SET_NIL_RETURN();
+}
+
+void c_m5_gfx_fill_ellipse(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_triangle(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 7) {
+        int32_t x0 = GET_INT_ARG(1);
+        int32_t y0 = GET_INT_ARG(2);
+        int32_t x1 = GET_INT_ARG(3);
+        int32_t y1 = GET_INT_ARG(4);
+        int32_t x2 = GET_INT_ARG(5);
+        int32_t y2 = GET_INT_ARG(6);
+        uint32_t color = GET_INT_ARG(7);
+        M5.Display.fillTriangle(x0, y0, x1, y1, x2, y2, color);
+    }
+    SET_NIL_RETURN();
+}
+void c_m5_gfx_fill_ellipse_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_circle_helper(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_affine(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_gradient_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_smooth_round_rect(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_smooth_circle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+
+void c_m5_gfx_fill_screen(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 1) {
+        uint32_t color = GET_INT_ARG(1);
+        M5.Display.fillScreen(color);
+    } else {
+        M5.Display.fillScreen(0);
+    }
+    SET_NIL_RETURN();
+}
+
+void mrbc_m5gfx_fill_init(struct VM *vm, mrbc_class *class_M5Gfx)
+{
+    mrbc_define_method(vm, class_M5Gfx, "fill_rect", c_m5_gfx_fill_rect);
+    mrbc_define_method(vm, class_M5Gfx, "fill_round_rect", c_m5_gfx_fill_round_rect);
+    mrbc_define_method(vm, class_M5Gfx, "fill_circle", c_m5_gfx_fill_circle);
+    mrbc_define_method(vm, class_M5Gfx, "fill_ellipse", c_m5_gfx_fill_ellipse);
+    mrbc_define_method(vm, class_M5Gfx, "fill_triangle", c_m5_gfx_fill_triangle);
+    mrbc_define_method(vm, class_M5Gfx, "fill_ellipse_arc", c_m5_gfx_fill_ellipse_arc);
+    mrbc_define_method(vm, class_M5Gfx, "fill_arc", c_m5_gfx_fill_arc);
+    mrbc_define_method(vm, class_M5Gfx, "fill_circle_helper", c_m5_gfx_fill_circle_helper);
+    mrbc_define_method(vm, class_M5Gfx, "fill_affine", c_m5_gfx_fill_affine);
+    mrbc_define_method(vm, class_M5Gfx, "fill_gradient_rect", c_m5_gfx_fill_gradient_rect);
+    mrbc_define_method(vm, class_M5Gfx, "fill_smooth_round_rect", c_m5_gfx_fill_smooth_round_rect);
+    mrbc_define_method(vm, class_M5Gfx, "fill_smooth_circle", c_m5_gfx_fill_smooth_circle);
+    mrbc_define_method(vm, class_M5Gfx, "fill_screen", c_m5_gfx_fill_screen);
+}
+
+} // extern "C"

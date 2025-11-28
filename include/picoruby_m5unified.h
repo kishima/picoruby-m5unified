@@ -1,3 +1,7 @@
-#pragma once 
+#pragma once
 
-void mrb_picoruby_m5unified_gem_init_impl(mrb_state *mrb);
+#if defined(PICORB_VM_MRUBY)
+#include <mruby.h>
+#elif defined(PICORB_VM_MRUBYC)
+#include <mrubyc.h>
+#endif
