@@ -36,7 +36,19 @@ void c_m5_gfx_fill_circle(mrbc_vm *vm, mrbc_value *v, int argc) {
 }
 
 void c_m5_gfx_fill_ellipse(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
-void c_m5_gfx_fill_triangle(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
+void c_m5_gfx_fill_triangle(mrbc_vm *vm, mrbc_value *v, int argc) {
+    if (argc >= 7) {
+        int32_t x0 = GET_INT_ARG(1);
+        int32_t y0 = GET_INT_ARG(2);
+        int32_t x1 = GET_INT_ARG(3);
+        int32_t y1 = GET_INT_ARG(4);
+        int32_t x2 = GET_INT_ARG(5);
+        int32_t y2 = GET_INT_ARG(6);
+        uint32_t color = GET_INT_ARG(7);
+        M5.Display.fillTriangle(x0, y0, x1, y1, x2, y2, color);
+    }
+    SET_NIL_RETURN();
+}
 void c_m5_gfx_fill_ellipse_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_arc(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
 void c_m5_gfx_fill_circle_helper(mrbc_vm *vm, mrbc_value *v, int argc) { SET_NIL_RETURN(); }
